@@ -1,15 +1,28 @@
 swagger: "2.0"
 info:
-  title: DevJobs API 💼
-  description: API for managing dev jobs
+  title: DevJobs API 
+  description: API for dev jobs application
   version: 1.0.0
 schemes:
-  - http
+  
 paths:
-  /jobs/6/2:
+  /jobs/{size}/{page}:
     get:
-      summary: Retrieve a paginated list of DevJobs.
-      description: Returns an array of DevJobs stored in the database, limited to a specific page and number of items per page. Each job includes a unique ID, a job title, a job description, and other relevant job details. The page number and number of items per page can be specified in the request URL, for example, jobs/6/2 would retrieve the second page of 6 DevJobs.
+      parameters:
+        - name: size
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+        - name: page
+          in: path
+          description: ID of the user
+          required: true
+          schema:
+            type: integer
+      summary: Retrieve a list of DevJobs.
+      description: Returns an array of DevJobs stored in the database,Each job includes a unique ID, a job title, a job description, and other relevant job details. The page number and number of items per page can be specified in the request URL.
       produces:
         - application/json
       responses:
@@ -31,7 +44,7 @@ paths:
                 logo:
                   type: string
                   required: true
-                  example: /iamges/scoot.svg
+                  example: 
                 logoBackground:
                   type: string
                   required: true
@@ -55,20 +68,18 @@ paths:
                 website:
                   type: string
                   required: true
-                  example: https://www.flyscoot.com/en/
+                  example: 
                 apply:
                   type: string
                   required: true
-                  example: https://www.flyscoot.com/en/
+                  example: 
                 description:
                   type: string
                   required: true
-                  example: Scoot is looking for job
                 requirements:
                   content:
                     type: string
                     required: true
-                    example: The ideal candidate is as passionate about solving challenges through …
                   items:
                     - type: string
                       required: true
@@ -76,8 +87,8 @@ paths:
                   content:
                     type: string
                     required: true
-                    example: "/iamges/scoot.svg"
+                    example: 
                   items:
                     - type: string
                       required: true
-                      example: "/iamges/scoot.svg"
+                      example: 
